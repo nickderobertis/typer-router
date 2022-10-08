@@ -28,8 +28,8 @@ def create_typer_app_from_router(router: "Router", **typer_kwargs) -> typer.Type
             if container_typer is None:
                 container_typer = typer.Typer(name=parent.name)
                 nested_apps[parent.import_path] = container_typer
-                # Connect the leaf node to the container
-                add_route_to_typer_app(route, router, container_typer)
+            # Connect the leaf node to the container
+            add_route_to_typer_app(route, router, container_typer)
         else:
             # This is a root command, add directly to main typer
             add_route_to_typer_app(route, router, app)
