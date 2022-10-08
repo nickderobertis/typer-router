@@ -1,5 +1,6 @@
 import importlib
 from pathlib import Path
+from types import ModuleType
 from typing import TYPE_CHECKING, List
 
 if TYPE_CHECKING:
@@ -8,9 +9,20 @@ if TYPE_CHECKING:
 
 def routes_from_app_import_path(app_import_path: str) -> List["Route"]:
     """Create routes from an app import path."""
+    app_path = _app_folder_from_import_path(app_import_path)
+    return _routes_from_app_path(app_path)
+
+
+def routes_from_app_module(app_module: ModuleType) -> List["Route"]:
+    """Create routes from an app module."""
+    app_path = _app_folder_from_app_module(app_module)
+    return _routes_from_app_path(app_path)
+
+
+def _routes_from_app_path(app_path: Path) -> List["Route"]:
+    """Create routes from an app path."""
     from typer_router.route import Route
 
-    app_path = _app_folder_from_import_path(app_import_path)
     # Iterate through nested directories and files
     routes: List[Route] = []
     for path in app_path.rglob("*"):
@@ -30,6 +42,10 @@ def routes_from_app_import_path(app_import_path: str) -> List["Route"]:
 def _app_folder_from_import_path(app_import_path: str) -> Path:
     """Get the app folder from an app import path."""
     app_module = importlib.import_module(app_import_path)
+    return _app_folder_from_app_module(app_module)
+
+
+def _app_folder_from_app_module(app_module: ModuleType) -> Path:
     if app_module.__file__ is None:
         # Should not happen, for type narrowing
         raise ValueError(f"App module {app_module} has no __file__ attribute.")

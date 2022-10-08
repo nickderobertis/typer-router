@@ -28,8 +28,9 @@ A simple example:
 
 ```python
 import typer_router
+from my_package import my_app
 
-router = typer_router.Router.from_app_import_path('my_package.my_app')
+router = typer_router.Router.from_app_module(my_app)
 app = router.to_typer(name="my_app_name")
 ```
 

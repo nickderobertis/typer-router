@@ -1,9 +1,10 @@
+from types import ModuleType
 from typing import List
 
 import typer
 from pydantic import BaseModel
 
-from typer_router.from_fs import routes_from_app_import_path
+from typer_router.from_fs import routes_from_app_import_path, routes_from_app_module
 from typer_router.route import Route
 from typer_router.to_typer import create_typer_app_from_router
 
@@ -23,3 +24,9 @@ class Router(BaseModel):
         routes = routes_from_app_import_path(app_import_path)
 
         return cls(routes=routes, app_import_path=app_import_path)
+
+    @classmethod
+    def from_app_module(cls, module: ModuleType) -> "Router":
+        routes = routes_from_app_module(module)
+
+        return cls(routes=routes, app_import_path=module.__name__)
