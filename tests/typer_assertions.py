@@ -9,11 +9,12 @@ def assert_app1_typer_is_correct(typer_app: typer.Typer):
     app_registered_groups = _registered_groups_dict(typer_app)
     app_registered_commands = _registered_commands_dict(typer_app)
 
-    # Check container1.command1_1
+    # Check container1.command1_1 and container1.command1_2
     assert "container1" in app_registered_groups
     container_1_group = app_registered_groups["container1"]
     container_1_commands = _registered_commands_dict(container_1_group.typer_instance)
     assert "command1_1" in container_1_commands
+    assert "command1_2" in container_1_commands
 
     # Check container2.container2_1.command2_1_1
     assert "container2" in app_registered_groups

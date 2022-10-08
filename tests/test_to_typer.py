@@ -1,8 +1,3 @@
-from typing import Dict
-
-import typer
-from typer.models import TyperInfo
-
 from tests.typer_assertions import assert_app1_typer_is_correct
 from typer_router import Router
 

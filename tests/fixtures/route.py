@@ -16,5 +16,10 @@ def app1_command1_1_route() -> Route:
 
 
 @pytest.fixture
+def app1_command1_2_route() -> Route:
+    return Route.from_import_path("container1.command1_2", is_dir=False)
+
+
+@pytest.fixture
 def app1_command2_1_1_route() -> Route:
     return Route.from_import_path("container2.container2_1.command2_1_1", is_dir=False)
