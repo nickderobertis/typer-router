@@ -1,0 +1,51 @@
+typer\_router package
+=====================
+
+.. automodule:: typer_router
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+typer\_router.exc module
+------------------------
+
+.. automodule:: typer_router.exc
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+typer\_router.from\_fs module
+-----------------------------
+
+.. automodule:: typer_router.from_fs
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+typer\_router.route module
+--------------------------
+
+.. automodule:: typer_router.route
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+typer\_router.router module
+---------------------------
+
+.. automodule:: typer_router.router
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+typer\_router.to\_typer module
+------------------------------
+
+.. automodule:: typer_router.to_typer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

@@ -1,0 +1,710 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="../_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="../_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#3f51b5">
+  <script src="../_static/javascripts/modernizr.js"></script>
+  
+  
+  
+    <title>typer_router package &#8212; typer-router 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="canonical" href="https://nickderobertis.github.io/typer-router/api/typer_router.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="typer_router" href="modules.html" />
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=indigo data-md-color-accent=deep-purple>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#api/typer_router" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../index.html" title="typer-router 1.0.0 documentation"
+           class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">&#xe869</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">typer-router</span>
+          <span class="md-header-nav__topic"> typer_router package </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="../search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder="Search"
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            <a href="https://github.com/nickderobertis/typer-router" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    typer-router
+  </div>
+</a>
+          </div>
+        </div>
+      
+      
+  
+  <script src="../_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = "../"versions.json"",
+        target_loc = "../../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+  </script>
+  
+
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">typer-router 1.0.0 documentation</a></li>
+          <li class="md-tabs__item"><a href="modules.html" class="md-tabs__link">typer_router</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../index.html" title="typer-router 1.0.0 documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon">&#xe869</i>
+      
+    </a>
+    <a href="../index.html"
+       title="typer-router 1.0.0 documentation">typer-router</a>
+  </label>
+    <div class="md-nav__source">
+      <a href="https://github.com/nickderobertis/typer-router" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    typer-router
+  </div>
+</a>
+    </div>
+  
+  
+
+  
+  <ul class="md-nav__list">
+    <li class="md-nav__item">
+    
+    
+      <a href="../tutorial.html" class="md-nav__link">Getting started with typer-router</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../auto_examples/index.html" class="md-nav__link">This is my gallery</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="modules.html" class="md-nav__link">typer_router</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <label class="md-nav__link md-nav__link--active" for="__toc"> typer_router package </label>
+    
+      <a href="#" class="md-nav__link md-nav__link--active">typer_router package</a>
+      
+        
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#api-typer-router--page-root" class="md-nav__link">typer_router package</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#submodules" class="md-nav__link">Submodules</a>
+        </li>
+        <li class="md-nav__item"><a href="#module-typer_router.exc" class="md-nav__link">typer_router.exc module</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#typer_router.exc.NoParentRouteException" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">NoParentRouteException</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.exc.TyperRouterException" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">TyperRouterException</span></code></a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#module-typer_router.from_fs" class="md-nav__link">typer_router.from_fs module</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#typer_router.from_fs.routes_from_app_import_path" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">routes_from_app_import_path()</span></code></a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#module-typer_router.route" class="md-nav__link">typer_router.route module</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#typer_router.route.Route" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Route</span></code></a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#typer_router.route.Route.depth" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Route.depth</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.route.Route.from_file_path" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Route.from_file_path()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.route.Route.from_import_path" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Route.from_import_path()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.route.Route.function_name" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Route.function_name</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.route.Route.import_path" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Route.import_path</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.route.Route.is_dir" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Route.is_dir</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.route.Route.name" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Route.name</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.route.Route.parent" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Route.parent</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.route.Route.parts" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Route.parts</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.route.Route.subpaths" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Route.subpaths</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.route.Route.subroutes" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Route.subroutes</span></code></a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#module-typer_router.router" class="md-nav__link">typer_router.router module</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#typer_router.router.Router" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Router</span></code></a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#typer_router.router.Router.app_import_path" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Router.app_import_path</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.router.Router.from_app_import_path" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Router.from_app_import_path()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.router.Router.full_import_path_for" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Router.full_import_path_for()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.router.Router.routes" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Router.routes</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.router.Router.to_typer" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Router.to_typer()</span></code></a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#module-typer_router.to_typer" class="md-nav__link">typer_router.to_typer module</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#typer_router.to_typer.add_route_to_typer_app" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">add_route_to_typer_app()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.to_typer.create_typer_app_from_router" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">create_typer_app_from_router()</span></code></a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/api/typer_router.rst.txt">Show Source</a> </li>
+
+  </ul>
+</nav>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#submodules" class="md-nav__link">Submodules</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#module-typer_router.exc" class="md-nav__link">typer_router.exc module</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#module-typer_router.from_fs" class="md-nav__link">typer_router.from_fs module</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#module-typer_router.route" class="md-nav__link">typer_router.route module</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#module-typer_router.router" class="md-nav__link">typer_router.router module</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#module-typer_router.to_typer" class="md-nav__link">typer_router.to_typer module</a>
+      
+    
+    </li></ul>
+    
+    </li></ul>
+    
+    </li>
+  </ul>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#api-typer-router--page-root" class="md-nav__link">typer_router package</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#submodules" class="md-nav__link">Submodules</a>
+        </li>
+        <li class="md-nav__item"><a href="#module-typer_router.exc" class="md-nav__link">typer_router.exc module</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#typer_router.exc.NoParentRouteException" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">NoParentRouteException</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.exc.TyperRouterException" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">TyperRouterException</span></code></a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#module-typer_router.from_fs" class="md-nav__link">typer_router.from_fs module</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#typer_router.from_fs.routes_from_app_import_path" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">routes_from_app_import_path()</span></code></a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#module-typer_router.route" class="md-nav__link">typer_router.route module</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#typer_router.route.Route" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Route</span></code></a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#typer_router.route.Route.depth" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Route.depth</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.route.Route.from_file_path" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Route.from_file_path()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.route.Route.from_import_path" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Route.from_import_path()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.route.Route.function_name" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Route.function_name</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.route.Route.import_path" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Route.import_path</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.route.Route.is_dir" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Route.is_dir</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.route.Route.name" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Route.name</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.route.Route.parent" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Route.parent</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.route.Route.parts" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Route.parts</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.route.Route.subpaths" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Route.subpaths</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.route.Route.subroutes" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Route.subroutes</span></code></a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#module-typer_router.router" class="md-nav__link">typer_router.router module</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#typer_router.router.Router" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Router</span></code></a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#typer_router.router.Router.app_import_path" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Router.app_import_path</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.router.Router.from_app_import_path" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Router.from_app_import_path()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.router.Router.full_import_path_for" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Router.full_import_path_for()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.router.Router.routes" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Router.routes</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.router.Router.to_typer" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Router.to_typer()</span></code></a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#module-typer_router.to_typer" class="md-nav__link">typer_router.to_typer module</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#typer_router.to_typer.add_route_to_typer_app" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">add_route_to_typer_app()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.to_typer.create_typer_app_from_router" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">create_typer_app_from_router()</span></code></a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/api/typer_router.rst.txt">Show Source</a> </li>
+
+<li id="searchbox" class="md-nav__item"></li>
+
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  <section id="module-typer_router">
+<span id="typer-router-package"></span><h1 id="api-typer-router--page-root">typer_router package<a class="headerlink" href="#api-typer-router--page-root" title="Permalink to this heading">¶</a></h1>
+<p>Build Typer CLI Apps with File System-Based Routing</p>
+<section id="submodules">
+<h2 id="submodules">Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-typer_router.exc">
+<span id="typer-router-exc-module"></span><h2 id="module-typer_router.exc">typer_router.exc module<a class="headerlink" href="#module-typer_router.exc" title="Permalink to this heading">¶</a></h2>
+<dl class="py exception">
+<dt class="sig sig-object py" id="typer_router.exc.NoParentRouteException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">typer_router.exc.</span></span><span class="sig-name descname"><span class="pre">NoParentRouteException</span></span><a class="reference internal" href="../_modules/typer_router/exc.html#NoParentRouteException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#typer_router.exc.NoParentRouteException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#typer_router.exc.TyperRouterException" title="typer_router.exc.TyperRouterException"><code class="xref py py-class docutils literal notranslate"><span class="pre">TyperRouterException</span></code></a></p>
+</dd></dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="typer_router.exc.TyperRouterException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">typer_router.exc.</span></span><span class="sig-name descname"><span class="pre">TyperRouterException</span></span><a class="reference internal" href="../_modules/typer_router/exc.html#TyperRouterException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#typer_router.exc.TyperRouterException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a></p>
+</dd></dl>
+</section>
+<section id="module-typer_router.from_fs">
+<span id="typer-router-from-fs-module"></span><h2 id="module-typer_router.from_fs">typer_router.from_fs module<a class="headerlink" href="#module-typer_router.from_fs" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="typer_router.from_fs.routes_from_app_import_path">
+<span class="sig-prename descclassname"><span class="pre">typer_router.from_fs.</span></span><span class="sig-name descname"><span class="pre">routes_from_app_import_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_import_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/typer_router/from_fs.html#routes_from_app_import_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#typer_router.from_fs.routes_from_app_import_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create routes from an app import path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference internal" href="#typer_router.route.Route" title="typer_router.route.Route"><code class="xref py py-class docutils literal notranslate"><span class="pre">Route</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+</section>
+<section id="module-typer_router.route">
+<span id="typer-router-route-module"></span><h2 id="module-typer_router.route">typer_router.route module<a class="headerlink" href="#module-typer_router.route" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="typer_router.route.Route">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">typer_router.route.</span></span><span class="sig-name descname"><span class="pre">Route</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/typer_router/route.html#Route"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#typer_router.route.Route" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="typer_router.route.Route.depth">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">depth</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></em><a class="headerlink" href="#typer_router.route.Route.depth" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="typer_router.route.Route.from_file_path">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_file_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'main'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/typer_router/route.html#Route.from_file_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#typer_router.route.Route.from_file_path" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#typer_router.route.Route" title="typer_router.route.Route"><code class="xref py py-class docutils literal notranslate"><span class="pre">Route</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="typer_router.route.Route.from_import_path">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_import_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">import_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'main'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/typer_router/route.html#Route.from_import_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#typer_router.route.Route.from_import_path" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#typer_router.route.Route" title="typer_router.route.Route"><code class="xref py py-class docutils literal notranslate"><span class="pre">Route</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="typer_router.route.Route.function_name">
+<span class="sig-name descname"><span class="pre">function_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'main'</span></em><a class="headerlink" href="#typer_router.route.Route.function_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="typer_router.route.Route.import_path">
+<span class="sig-name descname"><span class="pre">import_path</span></span><a class="headerlink" href="#typer_router.route.Route.import_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="typer_router.route.Route.is_dir">
+<span class="sig-name descname"><span class="pre">is_dir</span></span><a class="headerlink" href="#typer_router.route.Route.is_dir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="typer_router.route.Route.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#typer_router.route.Route.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="typer_router.route.Route.parent">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parent</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#typer_router.route.Route" title="typer_router.route.Route"><span class="pre">Route</span></a></em><a class="headerlink" href="#typer_router.route.Route.parent" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#typer_router.route.Route" title="typer_router.route.Route"><code class="xref py py-class docutils literal notranslate"><span class="pre">Route</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="typer_router.route.Route.parts">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parts</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#typer_router.route.Route.parts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="typer_router.route.Route.subpaths">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">subpaths</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#typer_router.route.Route.subpaths" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="typer_router.route.Route.subroutes">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">subroutes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#typer_router.route.Route" title="typer_router.route.Route"><span class="pre">Route</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#typer_router.route.Route.subroutes" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference internal" href="#typer_router.route.Route" title="typer_router.route.Route"><code class="xref py py-class docutils literal notranslate"><span class="pre">Route</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+</dd></dl>
+</section>
+<section id="module-typer_router.router">
+<span id="typer-router-router-module"></span><h2 id="module-typer_router.router">typer_router.router module<a class="headerlink" href="#module-typer_router.router" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="typer_router.router.Router">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">typer_router.router.</span></span><span class="sig-name descname"><span class="pre">Router</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/typer_router/router.html#Router"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#typer_router.router.Router" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="typer_router.router.Router.app_import_path">
+<span class="sig-name descname"><span class="pre">app_import_path</span></span><a class="headerlink" href="#typer_router.router.Router.app_import_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="typer_router.router.Router.from_app_import_path">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_app_import_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_import_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/typer_router/router.html#Router.from_app_import_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#typer_router.router.Router.from_app_import_path" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#typer_router.router.Router" title="typer_router.router.Router"><code class="xref py py-class docutils literal notranslate"><span class="pre">Router</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="typer_router.router.Router.full_import_path_for">
+<span class="sig-name descname"><span class="pre">full_import_path_for</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">route</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/typer_router/router.html#Router.full_import_path_for"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#typer_router.router.Router.full_import_path_for" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="typer_router.router.Router.routes">
+<span class="sig-name descname"><span class="pre">routes</span></span><a class="headerlink" href="#typer_router.router.Router.routes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="typer_router.router.Router.to_typer">
+<span class="sig-name descname"><span class="pre">to_typer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">typer_kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/typer_router/router.html#Router.to_typer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#typer_router.router.Router.to_typer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Typer</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+</dd></dl>
+</section>
+<section id="module-typer_router.to_typer">
+<span id="typer-router-to-typer-module"></span><h2 id="module-typer_router.to_typer">typer_router.to_typer module<a class="headerlink" href="#module-typer_router.to_typer" title="Permalink to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="typer_router.to_typer.add_route_to_typer_app">
+<span class="sig-prename descclassname"><span class="pre">typer_router.to_typer.</span></span><span class="sig-name descname"><span class="pre">add_route_to_typer_app</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">route</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">router</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/typer_router/to_typer.html#add_route_to_typer_app"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#typer_router.to_typer.add_route_to_typer_app" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="typer_router.to_typer.create_typer_app_from_router">
+<span class="sig-prename descclassname"><span class="pre">typer_router.to_typer.</span></span><span class="sig-name descname"><span class="pre">create_typer_app_from_router</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">router</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">typer_kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/typer_router/to_typer.html#create_typer_app_from_router"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#typer_router.to_typer.create_typer_app_from_router" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Typer</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+</section>
+</section>
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="modules.html" title="typer_router"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> Previous </span> typer_router </span>
+              </div>
+            </a>
+          
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2022, Nick DeRobertis.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.2.3.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+typer_router
+============
+
+.. toctree::
+   :maxdepth: 4
+
+   typer_router
