@@ -263,6 +263,8 @@
         <li class="md-nav__item"><a href="#module-typer_router.from_fs" class="md-nav__link">typer_router.from_fs module</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#typer_router.from_fs.routes_from_app_import_path" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">routes_from_app_import_path()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.from_fs.routes_from_app_module" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">routes_from_app_module()</span></code></a>
         </li></ul>
             </nav>
         </li>
@@ -303,6 +305,8 @@
         <li class="md-nav__item"><a href="#typer_router.router.Router.app_import_path" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Router.app_import_path</span></code></a>
         </li>
         <li class="md-nav__item"><a href="#typer_router.router.Router.from_app_import_path" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Router.from_app_import_path()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.router.Router.from_app_module" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Router.from_app_module()</span></code></a>
         </li>
         <li class="md-nav__item"><a href="#typer_router.router.Router.full_import_path_for" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Router.full_import_path_for()</span></code></a>
         </li>
@@ -405,6 +409,8 @@
         <li class="md-nav__item"><a href="#module-typer_router.from_fs" class="md-nav__link">typer_router.from_fs module</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#typer_router.from_fs.routes_from_app_import_path" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">routes_from_app_import_path()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.from_fs.routes_from_app_module" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">routes_from_app_module()</span></code></a>
         </li></ul>
             </nav>
         </li>
@@ -445,6 +451,8 @@
         <li class="md-nav__item"><a href="#typer_router.router.Router.app_import_path" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Router.app_import_path</span></code></a>
         </li>
         <li class="md-nav__item"><a href="#typer_router.router.Router.from_app_import_path" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Router.from_app_import_path()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#typer_router.router.Router.from_app_module" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Router.from_app_module()</span></code></a>
         </li>
         <li class="md-nav__item"><a href="#typer_router.router.Router.full_import_path_for" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Router.full_import_path_for()</span></code></a>
         </li>
@@ -505,6 +513,16 @@
 <dt class="sig sig-object py" id="typer_router.from_fs.routes_from_app_import_path">
 <span class="sig-prename descclassname"><span class="pre">typer_router.from_fs.</span></span><span class="sig-name descname"><span class="pre">routes_from_app_import_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_import_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/typer_router/from_fs.html#routes_from_app_import_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#typer_router.from_fs.routes_from_app_import_path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create routes from an app import path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference internal" href="#typer_router.route.Route" title="typer_router.route.Route"><code class="xref py py-class docutils literal notranslate"><span class="pre">Route</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="typer_router.from_fs.routes_from_app_module">
+<span class="sig-prename descclassname"><span class="pre">typer_router.from_fs.</span></span><span class="sig-name descname"><span class="pre">routes_from_app_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/typer_router/from_fs.html#routes_from_app_module"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#typer_router.from_fs.routes_from_app_module" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create routes from an app module.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference internal" href="#typer_router.route.Route" title="typer_router.route.Route"><code class="xref py py-class docutils literal notranslate"><span class="pre">Route</span></code></a>]</p>
@@ -612,6 +630,15 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="typer_router.router.Router.from_app_import_path">
 <em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_app_import_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_import_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/typer_router/router.html#Router.from_app_import_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#typer_router.router.Router.from_app_import_path" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#typer_router.router.Router" title="typer_router.router.Router"><code class="xref py py-class docutils literal notranslate"><span class="pre">Router</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="typer_router.router.Router.from_app_module">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_app_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/typer_router/router.html#Router.from_app_module"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#typer_router.router.Router.from_app_module" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#typer_router.router.Router" title="typer_router.router.Router"><code class="xref py py-class docutils literal notranslate"><span class="pre">Router</span></code></a></p>
