@@ -30,5 +30,8 @@ def routes_from_app_import_path(app_import_path: str) -> List["Route"]:
 def _app_folder_from_import_path(app_import_path: str) -> Path:
     """Get the app folder from an app import path."""
     app_module = importlib.import_module(app_import_path)
+    if app_module.__file__ is None:
+        # Should not happen, for type narrowing
+        raise ValueError(f"App module {app_module} has no __file__ attribute.")
     app_folder = Path(app_module.__file__).parent
     return app_folder
