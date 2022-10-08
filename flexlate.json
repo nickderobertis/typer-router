@@ -14,7 +14,27 @@
   "applied_templates": [
     {
       "name": "copier-pypi-sphinx-flexlate",
-      "data": {},
+      "data": {
+        "package_name": "typer-router",
+        "package_directory": "typer_router",
+        "full_name": "Typer Router",
+        "repo_name": "typer-router",
+        "repo_username": "nickderobertis",
+        "short_description": "Build Typer CLI Apps with File System-Based Routing",
+        "main_branch_name": "main",
+        "package_author": "Nick DeRobertis",
+        "author_email": "derobertis.nick@gmail.com",
+        "google_analytics_id": "",
+        "os_support": [
+          "ubuntu",
+          "macos",
+          "windows"
+        ],
+        "minimum_python_version": "3.8",
+        "topics": [],
+        "logo_url": "",
+        "install_packages": ""
+      },
       "version": "4d479c59cf0b4140c44487e47e612de302016990",
       "add_mode": "local",
       "root": "."
