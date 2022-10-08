@@ -5,6 +5,7 @@ from typer.models import TyperInfo
 
 
 def assert_app1_typer_is_correct(typer_app: typer.Typer):
+    assert typer_app.info.name == "app1"
     app_registered_groups = _registered_groups_dict(typer_app)
     app_registered_commands = _registered_commands_dict(typer_app)
 

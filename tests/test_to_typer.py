@@ -12,5 +12,5 @@ def test_creates_typer_from_router(app1_router: Router):
 
 
 def test_typer_has_all_commands(app1_router: Router):
-    typer_app = app1_router.to_typer()
+    typer_app = app1_router.to_typer(name="app1")
     assert_app1_typer_is_correct(typer_app)

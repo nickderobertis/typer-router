@@ -12,8 +12,8 @@ if TYPE_CHECKING:
 TyperDict = Dict[str, typer.Typer]
 
 
-def create_typer_app_from_router(router: "Router") -> typer.Typer:
-    app = typer.Typer()
+def create_typer_app_from_router(router: "Router", **typer_kwargs) -> typer.Typer:
+    app = typer.Typer(**typer_kwargs)
     nested_apps: TyperDict = {}
 
     for route in router.routes:

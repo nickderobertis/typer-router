@@ -9,5 +9,5 @@ def test_creates_router_from_app_import_path():
 
 def test_typer_has_all_commands(app1_router: Router):
     app1_router = Router.from_app_import_path(APP_1_IMPORT_PATH)
-    typer_app = app1_router.to_typer()
+    typer_app = app1_router.to_typer(name="app1")
     assert_app1_typer_is_correct(typer_app)

@@ -12,8 +12,8 @@ class Router(BaseModel):
     routes: List[Route]
     app_import_path: str
 
-    def to_typer(self) -> typer.Typer:
-        return create_typer_app_from_router(self)
+    def to_typer(self, **typer_kwargs) -> typer.Typer:
+        return create_typer_app_from_router(self, **typer_kwargs)
 
     def full_import_path_for(self, route: Route) -> str:
         return f"{self.app_import_path}.{route.import_path}"
