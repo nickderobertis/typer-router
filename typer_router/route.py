@@ -33,13 +33,9 @@ class Route(BaseModel):
     @property
     def parent(self) -> "Route":
         try:
-            return self.subroutes[-2]
+            return self.subroutes[-1]
         except IndexError:
             raise NoParentRouteException(f"No parent route for {self.import_path}")
-
-    @property
-    def before_parent_subroutes(self) -> List["Route"]:
-        return self.subroutes[:-2]
 
     @property
     def depth(self) -> int:

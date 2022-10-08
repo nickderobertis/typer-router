@@ -1,5 +1,5 @@
 import importlib
-from typing import Dict, Set, TYPE_CHECKING
+from typing import TYPE_CHECKING, Dict, Set
 
 import typer
 
@@ -22,17 +22,17 @@ def create_typer_app_from_router(router: "Router") -> typer.Typer:
 
         # Handle the parents of the leaf nodes, as those will just be container typers
         try:
-            parent_path = route.parent.import_path
+            parent = route.parent
         except NoParentRouteException:
-            parent_path = None
+            parent = None
 
-        if parent_path:
-            container_typer = nested_apps.get(parent_path)
+        if parent:
+            container_typer = nested_apps.get(parent.import_path)
             if container_typer is None:
-                container_typer = typer.Typer()
-                nested_apps[parent_path] = container_typer
+                container_typer = typer.Typer(name=parent.name)
+                nested_apps[parent.import_path] = container_typer
             # Connect the leaf node to the container
-            nested_apps[parent_path].add_typer(route_typer, name=route.name)
+            nested_apps[parent.import_path].add_typer(route_typer, name=route.name)
 
         # for path in route.subpaths:
         #     container_typer = nested_apps.get(path)
@@ -50,7 +50,7 @@ def create_typer_app_from_router(router: "Router") -> typer.Typer:
         for sub_route in route.subroutes:
             path = sub_route.import_path
             if path not in nested_apps:
-                container_typer = typer.Typer()
+                container_typer = typer.Typer(name=sub_route.name)
                 nested_apps[path] = container_typer
                 # app.add_typer(container_typer, name=sub_route.name)
 
@@ -65,18 +65,18 @@ def create_typer_app_from_router(router: "Router") -> typer.Typer:
     #  - a.k
     # We now need to connect b to a, k to a, and h to b.
     # This will make more sense after reading the prior block of comments
-    already_connected: Set[str] = set()
-    already_connected.update({route.import_path for route in router.routes})
+    already_connected: Set[str] = {route.import_path for route in router.routes}
     # Start from connecting to the main app
     for route in router.routes:
-        for sub_route in route.before_parent_subroutes:
+        # Need to create from leaf inwards so that commands will exist when connecting to main app
+        for sub_route in reversed(route.subroutes):
             # E.g. for sub_route:
-            # a.b.c.d we will get a, a.b
-            # a.b.h.i.j we will get a, a.b, a.b.h
+            # a.b.c.d we will get a.b.c, a.b, a
+            # a.b.h.i.j we will get a.b.h.i, a.b.h, a.b, a
             # a.k we will get a
             if sub_route.import_path in already_connected:
                 continue
-            app_to_connect = nested_apps[route.import_path]
+            app_to_connect = nested_apps[sub_route.import_path]
             try:
                 parent_app = nested_apps[sub_route.parent.import_path]
             except NoParentRouteException:
@@ -121,7 +121,7 @@ def create_typer_app_from_router(router: "Router") -> typer.Typer:
 
 
 def create_typer_app_from_route(route: "Route", router: "Router") -> typer.Typer:
-    app = typer.Typer()
+    app = typer.Typer(name=route.name)
 
     # Load the python file from the route's import path
     # and get the route's function from the file
