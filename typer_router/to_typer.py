@@ -17,9 +17,6 @@ def create_typer_app_from_router(router: "Router") -> typer.Typer:
     nested_apps: TyperDict = {}
 
     for route in router.routes:
-        # Handle the leaf nodes: create those typers from files.
-        route_typer = create_typer_app_from_route(route, router)
-
         # Handle the parents of the leaf nodes, as those will just be container typers
         try:
             parent = route.parent
@@ -31,14 +28,11 @@ def create_typer_app_from_router(router: "Router") -> typer.Typer:
             if container_typer is None:
                 container_typer = typer.Typer(name=parent.name)
                 nested_apps[parent.import_path] = container_typer
-            # Connect the leaf node to the container
-            nested_apps[parent.import_path].add_typer(route_typer, name=route.name)
-
-        # for path in route.subpaths:
-        #     container_typer = nested_apps.get(path)
-        #     if container_typer is None:
-        #         container_typer = typer.Typer()
-        #         nested_apps[path] = container_typer
+                # Connect the leaf node to the container
+                add_route_to_typer_app(route, router, container_typer)
+        else:
+            # This is a root command, add directly to main typer
+            add_route_to_typer_app(route, router, app)
 
     # Now create the nested container typers to fill in the gaps.
     # For example, if we have the following routes:
@@ -86,43 +80,8 @@ def create_typer_app_from_router(router: "Router") -> typer.Typer:
 
     return app
 
-    #
-    #
-    # max_depth = max([route.depth for route in router.routes])
-    # for i in range(max_depth):
-    #     for route in router.routes:
-    #         # Build up a nested app based on the route's paths.
-    #         # Create the apps when the first path of that name and depth is encountered,
-    #         # and add nested apps based on depth.
-    #         # For example, say we have two subcommands, one of which has a further subcommand:
-    #         # They are organized as:
-    #         # app.wash_hands
-    #         # app.food.eat
-    #
-    #         # Handle each path by depth first.
-    #         # E.g. for the first outer loop,
-    #         # On the first inner loop is "wash_hands", on the second loop is "food".
-    #         # and for the second outer loop,
-    #         # The only inner loop will be "eat"
-    #         try:
-    #             part = route.parts[i]
-    #         except IndexError:
-    #             continue
-    #
-    #
-    #         for path_part in route.parts:
-    #             if path_part not in nested_apps:
-    #                 nested_apps[path_part] = typer.Typer()
-    #             if isinstance(nested_apps[path_part], typer.Typer):
-    #                 this_typer = create_typer_app_from_route(route)
-    #                 nested_apps[path_part].add_typer(this_typer, name=path_part)
-    #
-    # return app
 
-
-def create_typer_app_from_route(route: "Route", router: "Router") -> typer.Typer:
-    app = typer.Typer(name=route.name)
-
+def add_route_to_typer_app(route: "Route", router: "Router", app: typer.Typer):
     # Load the python file from the route's import path
     # and get the route's function from the file
     full_import_path = router.full_import_path_for(route)
@@ -130,4 +89,3 @@ def create_typer_app_from_route(route: "Route", router: "Router") -> typer.Typer
     func = getattr(module, route.function_name)
 
     app.command(route.name)(func)
-    return app
